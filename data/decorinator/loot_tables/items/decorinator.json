@@ -1,0 +1,45 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:warped_fungus_on_a_stick",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{CustomModelData:4269001,smithed:{id:\"decorinator:decorinator\"}, decorinator:{mode: \"move\"}}"
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "translate": "item.decorinator.decorinator",
+                                "italic": "false"
+                            }
+                        },
+                        {
+                            "function": "minecraft:set_lore",
+                            "lore": [
+                                {
+                                    "text": ""
+                                },
+                                {
+                                    "translate": "lore.decorinator.mode",
+                                    "color": "gray",
+                                    "italic": "false",
+                                    "with": [
+                                        {
+                                            "translate": "lore.decorinator.mode.move",
+                                            "color": "green"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

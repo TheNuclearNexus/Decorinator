@@ -1,0 +1,51 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:structure_block",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{CustomModelData:4269002,smithed:{id:\"decorinator:blueprint\"},decoration:{id:\"decorinator:example\"}}"
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "translate": "item.decorinator.blueprint",
+                                "color": "white",
+                                "italic": "false"
+                            }
+                        },
+                        {
+                            "function": "minecraft:set_lore",
+                            "lore": [
+                                {
+                                    "text": ""
+                                },
+                                {
+                                    "translate": "lore.decorinator.decoration",
+                                    "italic": "false",
+                                    "color": "gray"
+                                },
+                                {
+                                    "translate": "lore.decorinator.entry",
+                                    "italic": "false",
+                                    "color": "gray",
+                                    "with": [
+                                        {
+                                            "translate": "decoration.decorinator.gravestone",
+                                            "color": "white"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

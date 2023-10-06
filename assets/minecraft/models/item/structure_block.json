@@ -1,0 +1,17 @@
+{
+    "parent": "block/structure_block",
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 4269001
+            },
+            "model": "decorinator:item/gravestone"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4269002
+            },
+            "model": "decorinator:item/blueprint"
+        }
+    ]
+  }

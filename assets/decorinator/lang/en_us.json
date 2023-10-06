@@ -1,0 +1,13 @@
+{
+    "item.decorinator.decorinator": "Decorinator",
+    "item.decorinator.blueprint": "Blueprint",
+
+    "lore.decorinator.decoration": "Decorations:",
+    "lore.decorinator.entry": " - %s",
+
+    "lore.decorinator.mode": "Mode: %s",
+    "lore.decorinator.mode.move": "Move",
+    "lore.decorinator.mode.rotate": "Rotate",
+
+    "decoration.decorinator.gravestone": "Gravestone"
+}

@@ -1,0 +1,3 @@
+__dist__/
+.beet_cache/
+__pycache__

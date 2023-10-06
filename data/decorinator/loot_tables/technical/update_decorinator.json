@@ -1,0 +1,34 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "decorinator:items/decorinator",
+                    "functions": [
+                        {
+                            "function": "minecraft:copy_nbt",
+                            "source": {
+                                "type": "minecraft:storage",
+                                "source": "decorinator:temp"
+                            },
+                            "ops": [
+                                {
+                                    "source": "mode",
+                                    "target": "decorinator.mode",
+                                    "op": "replace"
+                                },
+                                {
+                                    "source": "lore",
+                                    "target": "display.Lore",
+                                    "op": "replace"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
