@@ -1,0 +1,74 @@
+name: Build Nightly Libraries
+
+on: 
+  push:
+    branches:
+      - main
+  
+  workflow_dispatch:
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    
+    #----------------------------------------------
+    #       check-out repo and set-up python
+    #----------------------------------------------
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    #----------------------------------------------
+    #  -----  install & configure poetry  -----
+    #----------------------------------------------
+    - name: Cache poetry
+      id: cache-poetry
+      uses: actions/cache@v3
+      with:
+        path: ~/.local
+        key: poetry-${{ runner.os }}
+
+    - name: Install Poetry
+      if: steps.cache-poetry.outputs.cache-hit != 'true'
+      uses: snok/install-poetry@v1
+      with:
+        version: '1.2.2'
+        virtualenvs-in-project: true
+
+    #----------------------------------------------
+    #       load cached venv if cache exists
+    #----------------------------------------------
+    - name: Setup cache
+      id: cached-poetry-dependencies
+      uses: actions/cache@v3
+      with:
+        path: .venv
+        key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+        restore-keys: |
+          venv-${{ runner.os }}-
+
+    #----------------------------------------------
+    # install dependencies if cache does not exist
+    #----------------------------------------------
+    - name: Install dependencies
+      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+      run: poetry install
+    
+    #----------------------------------------------
+    #          Build libraries via beet
+    #----------------------------------------------
+    - name: Build via beet
+      run: poetry run beet -s "data_pack.zipped = true" -s "resource_pack.zipped = true"
+
+    #----------------------------------------------
+    #           Upload artifacts to GH
+    #----------------------------------------------
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: packs
+        path: __dist__/
