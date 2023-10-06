@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "decorinator"
+version = "0.1.0"
+description = ""
+authors = ["TheNuclearNexus <thenuclearnexus@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+bolt = "^0.37.0"
+bolt-expressions = "^0.12.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
