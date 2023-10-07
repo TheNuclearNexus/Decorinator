@@ -5,6 +5,8 @@ append function_tag minecraft:load {
 }
 
 scoreboard objectives add decorinator.id dummy
+scoreboard objectives add decorinator.rotation dummy
+scoreboard objectives add decorinator.selection dummy
 scoreboard objectives add decorinator.temp dummy
 scoreboard objectives add decorinator.pickup trigger
 

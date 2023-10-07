@@ -1,0 +1,56 @@
+{
+    "providers": [
+        {
+            "type": "space",
+            "advances": {
+              " ": 4,
+              "_": -64
+            }
+        },
+        {
+            "type": "bitmap",
+            "file": "decorinator:gui/radial_menu/background.png",
+            "ascent": -1,
+            "height": 64,
+            "chars": [
+                "\uf001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "decorinator:gui/radial_menu/highlight_move.png",
+            "ascent": -1,
+            "height": 64,
+            "chars": [
+                "\uf002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "decorinator:gui/radial_menu/highlight_rotate.png",
+            "ascent": -1,
+            "height": 64,
+            "chars": [
+                "\uf003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "decorinator:gui/radial_menu/highlight_remove.png",
+            "ascent": -1,
+            "height": 64,
+            "chars": [
+                "\uf004"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "decorinator:gui/radial_menu/highlight_settings.png",
+            "ascent": -1,
+            "height": 64,
+            "chars": [
+                "\uf005"
+            ]
+        }
+    ]
+}

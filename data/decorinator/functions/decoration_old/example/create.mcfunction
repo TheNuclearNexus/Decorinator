@@ -2,7 +2,7 @@
 execute summon item_display function ~/set_data:
     data merge entity @s {
         Tags:["smithed.entity", "smithed.strict", "decorinator.decoration", "decorinator.example"],
-        item: {id: "minecraft:structure_block", Count:1b, tag: {CustomModelData:4269001}},
+        item: {id: "minecraft:structure_block", Count:1b, tag: {CustomModelData:4269001, decoration: {id: "decorinator:example"}}},
         transformation: {
             translation: [0f,0.625f,0f],
             left_rotation: [0f,0f,0f,1f],

@@ -1,4 +1,6 @@
-
+unless score @s decorinator.id matches (-pow(2, 31), pow(2,31)-1) function ./bump_id:
+    scoreboard players add $globalId decorinator.id 1
+    scoreboard players operation @s decorinator.id = $globalId decorinator.id
 
 if predicate decorinator:technical/is_holding_decorinator function ./highlight_decorations:
     if entity @s[tag=!decorinator.holding_object] at @e[type=item_display,tag=decorinator.decoration,tag=!decorinator.held_object]:

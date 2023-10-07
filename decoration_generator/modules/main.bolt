@@ -1,0 +1,97 @@
+from nbtlib import Float
+
+decorations = ctx.meta.decoration_generator.all_decorations
+
+for name, data in decorations.items():
+    namespace = name.split(':')[0]
+    base_path = f"{namespace}:decoration/{data.id}"
+    id = f"{namespace}:{data.id}"
+
+    function f"{base_path}/create": 
+        execute summon item_display function ~/set_data:
+            data merge entity @s {
+                Tags:["smithed.entity", "smithed.strict", "decorinator.decoration", f"{namespace}.{data.id}"],
+                item: {id: data.item, Count:1b, tag: {CustomModelData: data.cmd, decoration: {id: id}}},
+                transformation: {
+                    translation: data.transformation.translation,
+                    left_rotation: data.transformation.left_rotation,
+                    right_rotation: data.transformation.right_rotation,
+                    scale: data.transformation.scale
+                }
+            }
+
+            if data storage decorinator:api owner function ~/../pickup:
+                store result score @s decorinator.id data get storage decorinator:api owner.id
+                tag @s add decorinator.held_object
+                scoreboard players set $created_object decorinator.temp 1
+
+    function f"{base_path}/place":
+        append function_tag decorinator:events/place {
+            "values": [
+                f"{base_path}/place"
+            ]
+        }
+
+        if data storage decorinator:api decoration{id: id} function ~/../create
+
+    function f"{base_path}/return":
+        append function_tag decorinator:events/return {
+            "values": [
+                f"{base_path}/return"
+            ]
+        }
+
+        if data storage decorinator:api decoration{id: id}:
+            loot give @s loot f"{namespace}:decorations/{data.id}"
+
+    loot_table f"{namespace}:decorations/{data.id}" {
+        "pools": [
+            {
+                "rolls": 1,
+                "entries": [
+                    {
+                        "type": "minecraft:item",
+                        "name": data.item,
+                        "functions": [
+                            {
+                                "function": "minecraft:set_nbt",
+                                "tag": f"{{CustomModelData:4269002,smithed:{{id:\"decorinator:blueprint\"}},decoration:{{id:\"{id}\"}}}}"
+                            },
+                            {
+                                "function": "minecraft:set_name",
+                                "name": {
+                                    "translate": "item.decorinator.blueprint",
+                                    "color": "white",
+                                    "italic": "false"
+                                }
+                            },
+                            {
+                                "function": "minecraft:set_lore",
+                                "lore": [
+                                    {
+                                        "text": ""
+                                    },
+                                    {
+                                        "translate": "lore.decorinator.decoration",
+                                        "italic": "false",
+                                        "color": "gray"
+                                    },
+                                    {
+                                        "translate": "lore.decorinator.entry",
+                                        "italic": "false",
+                                        "color": "gray",
+                                        "with": [
+                                            {
+                                                "translate": f"decoration.{namespace}.{data.id}",
+                                                "color": "white"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }

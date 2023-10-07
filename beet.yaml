@@ -5,10 +5,13 @@ description: Tool for quickly building decoration assets
 minecraft: '1.20'
 
 pipeline:
+  - decoration_generator.generate
   - plugins.link_dependencies
   - mecha
 
 require:
+  - decoration_generator.resources
+  - bolt_expressions.contrib.commands
   - bolt
   - bolt_expressions
 
