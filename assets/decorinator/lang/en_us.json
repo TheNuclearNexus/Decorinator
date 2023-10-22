@@ -8,6 +8,10 @@
     "lore.decorinator.mode": "Mode: %s",
     "lore.decorinator.mode.move": "Move",
     "lore.decorinator.mode.rotate": "Rotate",
+    "lore.decorinator.mode.remove": "Remove",
+
+    "text.decorinator.fraction": "%s/%s",
+    "text.decorinator.snapping": "Snapping set to: %s",
 
     "decoration.decorinator.example": "Gravestone"
 }

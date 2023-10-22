@@ -11,7 +11,7 @@ class Transformation(BaseModel):
     scale: list[float] = [1,1,1]
 
 class DecorationData(BaseModel):
-    id: str
+    id: str|None
     item: str
     cmd: int
     transformation: Transformation

@@ -4,6 +4,8 @@ decorations = ctx.meta.decoration_generator.all_decorations
 
 for name, data in decorations.items():
     namespace = name.split(':')[0]
+    data.id = name.split(':')[-1]
+    
     base_path = f"{namespace}:decoration/{data.id}"
     id = f"{namespace}:{data.id}"
 
@@ -51,7 +53,7 @@ for name, data in decorations.items():
                 "entries": [
                     {
                         "type": "minecraft:item",
-                        "name": data.item,
+                        "name": "minecraft:structure_block",
                         "functions": [
                             {
                                 "function": "minecraft:set_nbt",

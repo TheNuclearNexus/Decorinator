@@ -7,18 +7,19 @@ unless score $is_correct decorinator.temp matches 1 return 0
 data modify storage decorinator:temp nbt set from entity @s Item.tag
 
 if score $is_menu_open decorinator.temp matches 0 function ~/menu_closed:
-    if score $is_sneaking decorinator.temp matches 1 function ./radial_menu:
-        on origin function ~/toggle_menu:
-            data modify storage decorinator:temp mode set from storage decorinator:temp nbt.decorinator.mode
-            data modify storage decorinator:temp lore set from storage decorinator:temp nbt.display.Lore
-            function ./return_item
+    # if score $is_sneaking decorinator.temp matches 1 function ./radial_menu:
+    #     on origin function ~/toggle_menu:
+    #         data modify storage decorinator:temp mode set from storage decorinator:temp nbt.decorinator.mode
+    #         data modify storage decorinator:temp lore set from storage decorinator:temp nbt.display.Lore
+    #         function ./return_item
     
-            if score $is_menu_open decorinator.temp matches 1 function decorinator:entity/radial_menu/close
-            if score $is_menu_open decorinator.temp matches 0 function decorinator:entity/radial_menu/open
-        kill @s
+    #         if score $is_menu_open decorinator.temp matches 1 function decorinator:entity/radial_menu/close
+    #         if score $is_menu_open decorinator.temp matches 0 function decorinator:entity/radial_menu/open
+    #     kill @s
 
-    if score $is_sneaking decorinator.temp matches 0:
-        if score $is_holding_object decorinator.temp matches 1 function ~/quick_swap_mode:
+    # 
+    if score $is_holding_object decorinator.temp matches 1 function ~/swap_or_delete:
+        if score $is_sneaking decorinator.temp matches 0 function ~/quick_swap_mode:
             if data storage decorinator:temp nbt.decorinator{mode: 'move'}:
                 scoreboard players set $mode decorinator.temp 1
             if data storage decorinator:temp nbt.decorinator{mode: 'rotate'}:
@@ -30,6 +31,21 @@ if score $is_menu_open decorinator.temp matches 0 function ~/menu_closed:
             on origin function ./return_item:
                 if data entity @s SelectedItem loot give @s loot decorinator:technical/update_decorinator
                 unless data entity @s SelectedItem loot replace entity @s weapon.mainhand loot decorinator:technical/update_decorinator
-            kill @s
 
-if score $is_menu_open decorinator.temp matches 1 function ./radial_menu
+
+        if score $is_sneaking decorinator.temp matches 1 on origin function ~/quick_remove:
+            data modify storage decorinator:temp mode set from storage decorinator:temp nbt.decorinator.mode
+            data modify storage decorinator:temp lore set from storage decorinator:temp nbt.display.Lore
+            function ./return_item
+            function ./delete_object
+        kill @s
+
+if score $is_menu_open decorinator.temp matches 1 function ./radial_menu:
+    on origin function ~/toggle_menu:
+        data modify storage decorinator:temp mode set from storage decorinator:temp nbt.decorinator.mode
+        data modify storage decorinator:temp lore set from storage decorinator:temp nbt.display.Lore
+        function ./return_item
+
+        if score $is_menu_open decorinator.temp matches 1 function decorinator:entity/radial_menu/close
+        if score $is_menu_open decorinator.temp matches 0 function decorinator:entity/radial_menu/open
+    kill @s
