@@ -57,7 +57,7 @@ for name, data in decorations.items():
                         "functions": [
                             {
                                 "function": "minecraft:set_nbt",
-                                "tag": f"{{CustomModelData:4269002,smithed:{{id:\"decorinator:blueprint\"}},decoration:{{id:\"{id}\"}}}}"
+                                "tag": f"{{CustomModelData:4269002,smithed:{{id:\"decorinator:blueprint\"}},decoration:{{id:\"{id}\", cloneable: {data.cloneable}b}}}}"
                             },
                             {
                                 "function": "minecraft:set_name",

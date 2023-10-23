@@ -4,8 +4,12 @@ unless score @s decorinator.id matches (-pow(2, 31), pow(2,31)-1) function ./bum
     scoreboard players set @s decorinator.snapping 16
 
 if predicate decorinator:technical/is_holding_decorinator function ./highlight_decorations:
-    if entity @s[tag=!decorinator.holding_object] at @e[type=item_display,tag=decorinator.decoration,tag=!decorinator.held_object]:
-        particle dust 0 1 0 0.5 ~ ~0.5 ~ 0.2 0.2 0.2 0 10 normal @s 
+    if entity @s[tag=!decorinator.holding_object] at @e[type=item_display,tag=decorinator.decoration,tag=!decorinator.held_object, distance=..16]:
+        # particle dust 0 1 0 1 ~ ~ ~ 0.1 0.1 0.1 0 50 normal @s 
+        particle dust 0 1 0 0.6 ~ ~.1 ~ 0.0 0.0 0.3 0 150 normal @s 
+        particle dust 0 1 0 0.6 ~ ~.1 ~ 0.3 0.0 0.0 0 150 normal @s 
+        particle dust 0 1 0 0.6 ~ ~.1 ~ 0.0 0.3 0.0 0 150 normal @s 
+
 
     if entity @s[tag=decorinator.holding_object] function ~/held:
         scoreboard players operation $id decorinator.id = @s decorinator.id

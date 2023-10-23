@@ -15,6 +15,7 @@ class DecorationData(BaseModel):
     item: str
     cmd: int
     transformation: Transformation
+    cloneable: int = 0
 
 class Decoration(JsonFileBase[DecorationData]):
     model = DecorationData

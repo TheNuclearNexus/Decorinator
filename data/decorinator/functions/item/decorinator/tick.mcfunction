@@ -37,8 +37,8 @@ function ~/mode/move/align_pos:
 if data storage decorinator:temp {mode: 'move'} function ~/mode/move:
     scoreboard players operation $snap decorinator.temp = @s decorinator.snapping
     anchored eyes positioned ^ ^ ^0.1 anchored feet function ./position_object:
-        if block ~ ~ ~ air unless block ^ ^ ^0.1 air positioned ^ ^ ^-0.1 function ~/adjust_object:
-            unless block ^ ^ ^0.01 air function ~/tp_object:
+        if block ~ ~ ~ #decorinator:raycast_ignore unless block ^ ^ ^0.1 #decorinator:raycast_ignore positioned ^ ^ ^-0.1 function ~/adjust_object:
+            unless block ^ ^ ^0.01 #decorinator:raycast_ignore function ~/tp_object:
                 scoreboard players operation $id decorinator.id = @s decorinator.id
                 store success score $is_sneaking decorinator.temp if predicate decorinator:technical/is_sneaking
                 as @e[type=item_display,tag=decorinator.decoration] if score @s decorinator.id = $id decorinator.id:
@@ -46,8 +46,8 @@ if data storage decorinator:temp {mode: 'move'} function ~/mode/move:
                     if score $is_sneaking decorinator.temp matches 0 function ./tick/mode/move/align_pos
                         
 
-            if block ^ ^ ^0.01 air positioned ^ ^ ^0.01 function ~/
-        if entity @s[distance=..8] positioned ^ ^ ^0.1 if block ~ ~ ~ air function ./position_object
+            if block ^ ^ ^0.01 #decorinator:raycast_ignore positioned ^ ^ ^0.01 function ~/
+        if entity @s[distance=..8] positioned ^ ^ ^0.1 if block ~ ~ ~ #decorinator:raycast_ignore function ./position_object
 
 if data storage decorinator:temp {mode: 'rotate'} function ~/mode/rotate:
     scoreboard players operation $id decorinator.id = @s decorinator.id

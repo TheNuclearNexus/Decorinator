@@ -3,5 +3,6 @@
     "cmd": 4269001,
     "transformation": {
         "translation": [0, 0.625, 0]
-    }
+    },
+    "cloneable": 1
 }

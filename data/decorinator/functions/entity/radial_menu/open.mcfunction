@@ -31,7 +31,8 @@ anchored eyes positioned ^ ^-0.001 ^ anchored feet function ~/create_display:
         view_range: view_range,
         transformation: transform(),
         teleport_duration: -1,
-        background: 0
+        background: 0,  
+        alignment: center
     }
     as @e[type=text_display,tag=decorinator.radial_menu,sort=nearest,limit=1,distance=..0.2] function ~/set_data:
         data modify entity @s Rotation set from storage decorinator:temp rotation
