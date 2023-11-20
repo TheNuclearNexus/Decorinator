@@ -10,3 +10,31 @@ Decorinator is a library and does not add much on it's own. Other packs can add 
 This pack relies on the [Smithed Crafter library](https://smithed.net/packs/crafter) for it's recipes. The below are crafted in the **Heavy Workbench** not the the regular crafting table.
 
 ![Crafting recipe](https://github.com/TheNuclearNexus/Decorinator/blob/main/other/recipe.png?raw=true)
+
+## Usage
+### Placing Blueprints
+You can place blueprints by placing them in your offhand and then right clicking with the decorinator.
+This will put the blueprint down and lock it to your cursor.
+
+### Opening the menu
+Right clicking the decorinator in the air will open up the radial menu.<br/>
+<img src="https://github.com/TheNuclearNexus/Decorinator/assets/39636175/e5f4e9fe-1bc0-4b0f-ae71-8610bdf06508" width="256px" height="256px" style="image-rendering: pixelated;"/>
+
+The cog will swap the amount of snapping, shifting will moving or rotating will disable snapping entirely. <br/>
+The arrows will put the decorinator in `move` mode, allowing you to move the decoration around. <br/>
+The circular arrows will put the decorinator in `rotate` mode, this will cause the piece to rotate towards you. <br/>
+The X will put the decorinator in `delete` mode, right clicking on decorations will place them back into your inventory. <br/>
+
+### Shortcuts
+Dropping the decorinator while holding a decoration will swap between `move` and `rotate`.
+Shift-dropping the decorinator will delete the decoration.
+
+## Duplicating blueprints
+All blue-blueprints can be duplicated in the [**Heavy Workbench**](https://smithed.net/packs/crafter) using the following recipe:
+```
+LLL
+LBL
+LPL
+``` 
+Where `L` is Lapis Lazuli, `B` is the blueprint, and `P` is paper. 
+
